@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StudySpace - Your personal academic planner."
+    />
+
+    <title>StudySpace | Your Academic Life, Organized</title>
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/landing.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../js/theme.js" defer></script>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <header class="header">
+      <nav class="navbar container">
+        <a href="#home" class="logo">
+          <i data-lucide="graduation-cap"></i>
+          <span>StudySpace</span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+          <div class="nav-actions">
+            <!-- THEME BUTTON -->
+            <button
+              class="theme-switch"
+              id="themeToggle"
+              type="button"
+              aria-label="Toggle dark mode"
+              aria-pressed="false"
+            >
+              <span class="switch-icon sun">
+                <i data-lucide="sun"></i>
+              </span>
+
+              <span class="switch-icon moon">
+                <i data-lucide="moon"></i>
+              </span>
+
+              <span class="theme-switch-thumb"></span>
+            </button>
+
+            <a href="login.html" class="btn btn-outline">Log In</a>
+            <a href="register.html" class="btn btn-primary">Sign Up</a>
+          </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Toggle navigation"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero container" id="home">
+        <div class="hero-content">
+          <span class="eyebrow">
+            <i data-lucide="sparkles"></i>
+            YOUR PERSONAL STUDENT PLANNER
+          </span>
+
+          <h1>
+            Your academic life,
+            <span>organized.</span>
+          </h1>
+
+          <p>
+            Keep track of your classes, assignments, projects, and deadlines in
+            one simple workspace. Spend less time organizing and more time
+            learning.
+          </p>
+
+          <div class="hero-actions">
+            <a href="register.html" class="btn btn-primary btn-large">
+              Get Started
+              <i data-lucide="arrow-right"></i>
+            </a>
+
+            <a href="#features" class="btn btn-secondary btn-large">
+              Explore Features
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <i data-lucide="check-circle"></i>
+            Your personal academic workspace.
+          </div>
+        </div>
+
+        <!-- DASHBOARD PREVIEW -->
+        <div class="preview-wrapper">
+          <div class="preview-window">
+            <div class="preview-header">
+              <div class="preview-brand">
+                <i data-lucide="graduation-cap"></i>
+                StudySpace
+              </div>
+
+              <div class="preview-profile">
+                <i data-lucide="circle-user-round"></i>
+              </div>
+            </div>
+
+            <div class="preview-body">
+              <div class="preview-greeting">
+                <div>
+                  <span>MONDAY, NOVEMBER 9</span>
+                  <h3>Good morning, Alex!</h3>
+                  <p>Here's what's happening today.</p>
+                </div>
+
+                <i data-lucide="sun"></i>
+              </div>
+
+              <div class="preview-stats">
+                <div class="stat-card">
+                  <i data-lucide="clipboard-list"></i>
+                  <span>Pending Tasks</span>
+                  <strong>08</strong>
+                </div>
+
+                <div class="stat-card">
+                  <i data-lucide="check-circle"></i>
+                  <span>Completed</span>
+                  <strong>12</strong>
+                </div>
+
+                <div class="stat-card">
+                  <i data-lucide="folder-kanban"></i>
+                  <span>Projects</span>
+                  <strong>03</strong>
+                </div>
+              </div>
+
+              <div class="preview-grid">
+                <div class="preview-panel schedule-panel">
+                  <div class="panel-heading">
+                    <h4>Today's Schedule</h4>
+                    <span>View all</span>
+                  </div>
+
+                  <div class="schedule-item">
+                    <div class="schedule-time">08:00</div>
+                    <div class="schedule-info">
+                      <strong>Web Development</strong>
+                      <span>Room 204 · 8:00 - 9:30 AM</span>
+                    </div>
+                  </div>
+
+                  <div class="schedule-item">
+                    <div class="schedule-time">10:00</div>
+                    <div class="schedule-info">
+                      <strong>Database Systems</strong>
+                      <span>Room 105 · 10:00 - 11:30 AM</span>
+                    </div>
+                  </div>
+
+                  <div class="schedule-item">
+                    <div class="schedule-time">13:00</div>
+                    <div class="schedule-info">
+                      <strong>Programming</strong>
+                      <span>Lab 2 · 1:00 - 2:30 PM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-panel tasks-panel">
+                  <div class="panel-heading">
+                    <h4>Upcoming Tasks</h4>
+                    <i data-lucide="ellipsis"></i>
+                  </div>
+
+                  <div class="task-item">
+                    <i data-lucide="circle"></i>
+                    <div>
+                      <strong>Java Activity</strong>
+                      <span>Due tomorrow</span>
+                    </div>
+                  </div>
+
+                  <div class="task-item">
+                    <i data-lucide="circle"></i>
+                    <div>
+                      <strong>Research Paper</strong>
+                      <span>Due Wednesday</span>
+                    </div>
+                  </div>
+
+                  <div class="task-item">
+                    <i data-lucide="circle"></i>
+                    <div>
+                      <strong>UI Design Project</strong>
+                      <span>Due Friday</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-decoration"></div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section features-section" id="features">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">WHAT YOU CAN DO</span>
+            <h2>Everything you need to stay organized.</h2>
+            <p>
+              Manage your academic responsibilities without switching between
+              different tools.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="calendar-days"></i>
+              </div>
+              <h3>Class Schedules</h3>
+              <p>
+                Organize your weekly classes, subjects, time slots, and
+                classroom information.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="clipboard-list"></i>
+              </div>
+              <h3>Tasks & Activities</h3>
+              <p>
+                Keep track of assignments, quizzes, homework, and upcoming
+                deadlines.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="folder-kanban"></i>
+              </div>
+              <h3>Project Tracking</h3>
+              <p>Organize your academic projects and monitor their progress.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="calendar-check"></i>
+              </div>
+              <h3>Academic Calendar</h3>
+              <p>
+                View important dates, upcoming classes, and deadlines in one
+                calendar.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section about-section" id="about">
+        <div class="container about-content">
+          <div class="about-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+
+          <div>
+            <span class="eyebrow">ABOUT STUDYSPACE</span>
+            <h2>A simpler way to manage student life.</h2>
+
+            <p>
+              StudySpace is a personal academic planning platform designed to
+              help students organize their daily school responsibilities. From
+              class schedules to major projects, everything is accessible in one
+              place.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">GETTING STARTED</span>
+            <h2>Three simple steps.</h2>
+            <p>Start organizing your academic life.</p>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <i data-lucide="user-plus"></i>
+              <h3>Create an Account</h3>
+              <p>Register your personal StudySpace account.</p>
+            </article>
+
+            <article class="step-card">
+              <span class="step-number">02</span>
+              <i data-lucide="calendar-plus"></i>
+              <h3>Add Your Schedule</h3>
+              <p>Enter your subjects, classes, and activities.</p>
+            </article>
+
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <i data-lucide="chart-no-axes-combined"></i>
+              <h3>Stay Organized</h3>
+              <p>Monitor your tasks and track your progress.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION -->
+      <section class="cta-section" id="contact">
+        <div class="container cta-content">
+          <h2>Ready to organize your academic life?</h2>
+          <p>Start planning your school activities with StudySpace.</p>
+
+          <a href="register.html" class="btn btn-primary btn-large">
+            Get Started
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <a href="#home" class="logo">
+          <i data-lucide="graduation-cap"></i>
+          <span>StudySpace</span>
+        </a>
+
+        <p>Organize your academic life, one day at a time.</p>
+
+        <span class="copyright">
+          © <span id="currentYear"></span> StudySpace. All rights reserved.
+        </span>
+      </div>
+    </footer>
+
+    <!-- ICON INITIALIZATION -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          lucide.createIcons();
+        }
+
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>
