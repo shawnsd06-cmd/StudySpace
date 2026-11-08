@@ -1,5 +1,9 @@
 /* THEME VARIABLES */
+/* GLOBAL FONT */
 
+* {
+    font-family: 'Inter', sans-serif;
+}
 :root,
 [data-theme="light"] {
   color-scheme: light;
