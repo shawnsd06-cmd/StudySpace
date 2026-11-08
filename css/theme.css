@@ -1,4 +1,7 @@
 /* THEME VARIABLES */
+* {
+    font-family: 'Inter', sans-serif;
+}
 
 :root,
 [data-theme="light"] {
