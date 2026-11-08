@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account | StudySpace</title>
+
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../js/theme.js" defer></script>
+  </head>
+
+  <body class="auth-page">
+    <header class="auth-header">
+      <a href="index.html" class="logo">
+        <i data-lucide="graduation-cap"></i>
+        <span>StudySpace</span>
+      </a>
+
+      <button
+        class="theme-switch"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+      >
+        <span class="switch-icon sun">
+          <i data-lucide="sun"></i>
+        </span>
+        <span class="switch-icon moon">
+          <i data-lucide="moon"></i>
+        </span>
+        <span class="theme-switch-thumb"></span>
+      </button>
+    </header>
+
+    <main class="auth-container">
+      <section class="auth-card">
+        <div class="auth-heading">
+          <div class="auth-icon">
+            <i data-lucide="user-round-plus"></i>
+          </div>
+
+          <h1>Create an account</h1>
+          <p>Join StudySpace and organize your academic life.</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <!-- FIRST AND LAST NAME -->
+          <div class="name-fields">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+
+              <div class="input-wrapper">
+                <i data-lucide="user"></i>
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="Juan"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+
+              <div class="input-wrapper">
+                <i data-lucide="user"></i>
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Dela Cruz"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+
+            <div class="input-wrapper">
+              <i data-lucide="mail"></i>
+              <input
+                type="email"
+                id="email"
+                placeholder="juandelacruz@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- CREATE PASSWORD -->
+          <div class="form-group">
+            <label for="password">Create a Password</label>
+
+            <div class="input-wrapper password-wrapper">
+              <i data-lucide="lock"></i>
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                autocomplete="new-password"
+                required
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="password"
+                aria-label="Show password"
+              >
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+
+            <!-- PASSWORD STRENGTH -->
+            <div class="password-strength">
+              <div class="strength-heading">
+                <span>Password strength</span>
+                <span id="strengthText">No password</span>
+              </div>
+
+              <div class="strength-bars">
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+              </div>
+
+              <ul class="password-checklist">
+                <li id="length">At least 8 characters</li>
+                <li id="uppercase">One uppercase letter</li>
+                <li id="lowercase">One lowercase letter</li>
+                <li id="number">One number</li>
+                <li id="special">One special character</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CONFIRM PASSWORD -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+
+            <div class="input-wrapper password-wrapper">
+              <i data-lucide="shield-check"></i>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+                required
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="confirmPassword"
+                aria-label="Show password"
+              >
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+
+            <p id="passwordMatch" class="password-match"></p>
+          </div>
+
+          <!-- CREATE ACCOUNT BUTTON -->
+          <button
+            type="submit"
+            class="auth-button"
+            id="registerButton"
+            disabled
+          >
+            Create Account
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>Already a member?</span>
+        </div>
+
+        <p class="auth-footer">
+          Already have an account?
+          <a href="login.html">Log in</a>
+        </p>
+      </section>
+
+      <div class="back-home">
+        <a href="index.html" class="return-home">
+          <i data-lucide="arrow-left"></i>
+          Back to Home
+        </a>
+      </div>
+    </main>
+
+    <script>
+      // ELEMENTS
+      const form = document.getElementById("registerForm");
+
+      const firstName = document.getElementById("firstName");
+      const lastName = document.getElementById("lastName");
+      const email = document.getElementById("email");
+
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmPassword");
+
+      const registerButton = document.getElementById("registerButton");
+      const passwordMatch = document.getElementById("passwordMatch");
+
+      // PASSWORD REQUIREMENTS
+      const requirements = {
+        length: (value) => value.length >= 8,
+        uppercase: (value) => /[A-Z]/.test(value),
+        lowercase: (value) => /[a-z]/.test(value),
+        number: (value) => /[0-9]/.test(value),
+        special: (value) => /[^A-Za-z0-9]/.test(value),
+      };
+
+      // FORM VALIDATION
+      function validateForm() {
+        const value = password.value;
+        let passedCount = 0;
+
+        // CHECK PASSWORD REQUIREMENTS
+        for (const [id, check] of Object.entries(requirements)) {
+          const passed = check(value);
+
+          document.getElementById(id).classList.toggle("valid", passed);
+
+          if (passed) passedCount++;
+        }
+
+        // PASSWORD STRENGTH
+        const bars = document.querySelectorAll(".strength-bar");
+        const strengthText = document.getElementById("strengthText");
+
+        let strength = 0;
+
+        if (value.length > 0) {
+          if (passedCount <= 2) {
+            strength = 1;
+          } else if (passedCount === 3) {
+            strength = 2;
+          } else if (passedCount === 4) {
+            strength = 3;
+          } else {
+            strength = 4;
+          }
+        }
+
+        bars.forEach((bar, index) => {
+          bar.className = "strength-bar";
+
+          if (index < strength) {
+            if (strength <= 1) {
+              bar.classList.add("weak");
+            } else if (strength <= 3) {
+              bar.classList.add("medium");
+            } else {
+              bar.classList.add("strong");
+            }
+          }
+        });
+
+        const labels = ["No password", "Weak", "Fair", "Good", "Strong"];
+
+        strengthText.textContent = labels[strength];
+
+        // CONFIRM PASSWORD
+        const passwordsMatch =
+          confirmPassword.value.length > 0 && value === confirmPassword.value;
+
+        if (confirmPassword.value.length === 0) {
+          passwordMatch.textContent = "";
+          passwordMatch.classList.remove("match-success");
+        } else {
+          passwordMatch.textContent = passwordsMatch
+            ? "Passwords match."
+            : "Passwords do not match.";
+
+          passwordMatch.classList.toggle("match-success", passwordsMatch);
+        }
+
+        // CHECK ALL FIELDS
+        const fieldsValid =
+          firstName.value.trim().length > 0 &&
+          lastName.value.trim().length > 0 &&
+          email.validity.valid &&
+          email.value.trim().length > 0;
+
+        // ENABLE OR DISABLE BUTTON
+        registerButton.disabled = !(
+          fieldsValid &&
+          passedCount === 5 &&
+          passwordsMatch
+        );
+      }
+
+      // LISTEN FOR INPUT CHANGES
+      form.addEventListener("input", validateForm);
+
+      // PASSWORD VIEWER
+      document.querySelectorAll(".password-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const input = document.getElementById(button.dataset.target);
+
+          const isPassword = input.type === "password";
+
+          input.type = isPassword ? "text" : "password";
+
+          button.innerHTML = isPassword
+            ? '<i data-lucide="eye-off"></i>'
+            : '<i data-lucide="eye"></i>';
+
+          button.setAttribute(
+            "aria-label",
+            isPassword ? "Hide password" : "Show password",
+          );
+
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        });
+      });
+
+      // FORM SUBMISSION
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        validateForm();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (registerButton.disabled) {
+          return;
+        }
+
+        alert(
+          "Registration form validated! Email verification will be connected next.",
+        );
+      });
+
+      // INITIALIZE ICONS
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>
