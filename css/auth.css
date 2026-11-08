@@ -309,3 +309,139 @@
   width: 16px;
   height: 16px;
 }
+
+
+/* REGISTRATION PAGE */
+
+.name-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.name-fields .form-group {
+    min-width: 0;
+}
+
+/* PASSWORD STRENGTH */
+
+.password-strength {
+    margin-top: 11px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--surface-secondary);
+}
+
+.strength-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.strength-heading span:first-child {
+    color: var(--text-secondary);
+}
+
+#strengthText {
+    color: var(--text-secondary);
+}
+
+.strength-bars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 5px;
+    border-radius: 10px;
+    background: var(--border);
+    transition: background 0.3s ease;
+}
+
+.strength-bar.weak {
+    background: #e05c5c;
+}
+
+.strength-bar.medium {
+    background: #e6a23c;
+}
+
+.strength-bar.strong {
+    background: #299d68;
+}
+
+.password-checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+}
+
+.password-checklist li {
+    color: var(--text-secondary);
+    font-size: 10px;
+    transition: color 0.25s ease;
+}
+
+.password-checklist li::before {
+    content: "○";
+    margin-right: 6px;
+}
+
+.password-checklist li.valid {
+    color: #299d68;
+}
+
+.password-checklist li.valid::before {
+    content: "✓";
+}
+
+.password-match {
+    margin-top: 7px;
+    font-size: 11px;
+    color: #d65b5b;
+}
+
+.password-match.match-success {
+    color: #299d68;
+}
+
+.auth-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 380px) {
+    .name-fields {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    display: grid;
+    place-items: center;
+    padding: 4px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+.password-toggle svg {
+    width: 17px;
+    height: 17px;
+}
